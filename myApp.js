@@ -5,7 +5,7 @@ var bGround = require("fcc-express-bground")
 module.exports = app
 
 // Meet the Node console
-bGround.log("Hello World")
+// bGround.log("Hello World")
 console.log("Hello World")
 
 // Start a Working Express Server
