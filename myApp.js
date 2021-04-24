@@ -2,14 +2,14 @@ var express = require("express")
 var app = express()
 var bGround = require("fcc-express-bground")
 
-module.exports = app
-
 // Meet the Node console
 bGround.log("Hello World")
 console.log("Hello World")
 
 // Start a Working Express Server
-
+app.get("/", (req, res) => {
+  res.send("Hello Express")
+})
 // Serve an HTML File
 
 // Serve Static Assets
