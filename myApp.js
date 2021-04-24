@@ -21,7 +21,9 @@ app.get("/", (req, res) => {
 app.use("/public", express.static(__dirname + "/public"))
 
 // Serve JSON on a Specific Route
-
+app.get("/json", (req, res) => {
+  res.json({ message: "Hello json" })
+})
 // Use the .env File
 
 // Implement a Root-Level Request Logger Middleware
