@@ -3,6 +3,12 @@ var app = express()
 var bGround = require("fcc-express-bground")
 require("dotenv").config()
 
+// Implement a Root-Level Request Logger Middleware
+app.get((req, res, next) => {
+  console.log(req.method + " " + req.path + " - " + req.ip)
+  next()
+})
+
 // Meet the Node console
 bGround.log("Hello World")
 console.log("Hello World")
@@ -37,8 +43,6 @@ app.get("/json", (req, res) => {
   }
   res.json(resJson)
 })
-
-// Implement a Root-Level Request Logger Middleware
 
 // Chain Middleware to Create a Time Server
 
