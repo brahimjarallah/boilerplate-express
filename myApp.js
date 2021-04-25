@@ -45,6 +45,32 @@ app.get("/json", (req, res) => {
 
 // Chain Middleware to Create a Time Server
 
+// In the route app.get('/now', ...) chain a middleware function and the final handler.
+// In the middleware function you should add the current time to the request object in the req.time key
+// You can use new Date().toString()
+// In the handler, respond with a JSON object, taking the structure { time: req.time }
+app.get(
+  "/now",
+  (req, res, next) => {
+    req.time = Date().toString()
+    next()
+  },
+  (req, res) => {
+    res.send(req.time)
+  }
+)
+
+// app.get(
+//   "/user",
+//   function (req, res, next) {
+//     req.user = getTheUserSync() // Hypothetical synchronous operation
+//     next()
+//   },
+//   function (req, res) {
+//     res.send(req.user)
+//   }
+// )
+
 // Get Route Parameter Input from the Client
 
 // Get Query Parameter Input from the Client
