@@ -56,7 +56,8 @@ app.get(
     next()
   },
   (req, res) => {
-    res.send(req.time)
+    // res.send(req.time)
+    res.json({ time: req.time })
   }
 )
 
