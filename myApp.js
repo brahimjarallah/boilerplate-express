@@ -4,7 +4,8 @@ var bGround = require("fcc-express-bground")
 require("dotenv").config()
 
 // Implement a Root-Level Request Logger Middleware
-app.get((req, res, next) => {
+
+app.use((req, res, next) => {
   console.log(req.method + " " + req.path + " - " + req.ip)
   next()
 })
@@ -31,10 +32,8 @@ app.use("/public", express.static(__dirname + "/public"))
 // app.get("/json", (req, res) => {
 //   res.json({ message: "Hello json" })
 // })
-// Use the .env File
 
-// in the / json GET route handler you created in the last challenge,
-// transform the response object's message to uppercase if process.env.MESSAGE_STYLE equals uppercase. The response object should either be {"message": "Hello json"} or {"message": "HELLO JSON"}, depending on the MESSAGE_STYLE value.
+// Use the .env File
 
 app.get("/json", (req, res) => {
   var resJson = { message: "Hello json" }
