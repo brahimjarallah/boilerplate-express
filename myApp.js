@@ -1,3 +1,4 @@
+const { query } = require("express")
 var express = require("express")
 var app = express()
 var bGround = require("fcc-express-bground")
@@ -84,6 +85,16 @@ app.get("/:word/echo", (req, res) => {
 })
 
 // Get Query Parameter Input from the Client
+// Build an API endpoint, mounted at GET /name.
+// Respond with a JSON document, taking the structure { name: 'firstname lastname' }.
+// The first and last name parameters should be encoded in a query string e.g. ? first = firstname & last=lastname.
+
+// Note: In the following exercise you are going to receive data from a POST request, at the same /name route path. If you want, you can use the method app.route(path).get(handler).post(handler). This syntax allows you to chain different verb handlers on the same path route. You can save a bit of typing, and have cleaner code.
+
+app.get("/name", (req, res) => {
+  // console.log(req.query)
+  res.json({ name: req.query.first + " " + req.query.last })
+})
 
 // Use body-parser to Parse POST Requests
 
