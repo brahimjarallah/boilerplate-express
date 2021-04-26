@@ -10,6 +10,7 @@ var bodyParser = require("body-parser")
 
 app.use((req, res, next) => {
   bodyParser.urlencoded({ extended: false })
+  console.log(bodyParser)
   next()
 })
 
