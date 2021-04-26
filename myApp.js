@@ -1,18 +1,15 @@
+var bodyParser = require("body-parser")
 const { query } = require("express")
 var express = require("express")
 var app = express()
 var bGround = require("fcc-express-bground")
 require("dotenv").config()
-var bodyParser = require("body-parser")
 
 // Use body-parser to Parse POST Requests
 //   Note: extended = false is a configuration option that tells the parser to use the classic encoding.When using it, values can be only strings or arrays.The extended version allows more data flexibility, but it is outmatched by JSON.
 
-app.use((req, res, next) => {
-  bodyParser.urlencoded({ extended: false })
-  console.log(bodyParser)
-  next()
-})
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 // Implement a Root-Level Request Logger Middleware
 
