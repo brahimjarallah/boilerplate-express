@@ -105,5 +105,10 @@ app.get("/name", (req, res) => {
 })
 
 // Get Data from POST Requests
+app.post("/name", (req, res) => {
+  res.json({ name: req.body.first + " " + req.body.last })
+})
+// Respond with the same JSON object as before: {name: 'firstname lastname'}. Test if your endpoint works using the html form we provided in the app frontpage.
 
+// exporting module
 module.exports = app
